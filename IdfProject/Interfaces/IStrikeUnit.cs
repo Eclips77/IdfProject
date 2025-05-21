@@ -8,5 +8,8 @@ namespace IdfProject.Iterfaces
 {
     internal interface IStrikeUnit
     {
+        void strike(string location,string target);
+        void ConsumeAmmo();
+        void CheckFuel();
     }
 }
