@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IdfProject
+namespace IdfProject.Entities.StrikeUnits
 {
-    internal class Program
+    internal class Drone
     {
-        static void Main(string[] args)
-        {
-            
-        }
     }
 }

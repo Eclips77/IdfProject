@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IdfProject.Entities.Idf.Aman
+namespace IdfProject.Entities
 {
-    internal class Aman
+    internal class Terrorist
     {
     }
 }

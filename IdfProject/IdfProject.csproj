@@ -43,16 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Hamas\Hamas.cs" />
-    <Compile Include="Entities\Hamas\Terrorist.cs" />
-    <Compile Include="Entities\Idf\Aman\Aman.cs" />
-    <Compile Include="Entities\Idf\Idf.cs" />
-    <Compile Include="Entities\Idf\StrikeUnits\Artilery.cs" />
-    <Compile Include="Entities\Idf\StrikeUnits\Drone.cs" />
-    <Compile Include="Entities\Idf\StrikeUnits\F16.cs" />
-    <Compile Include="Entities\Interfaces\IStrike.cs" />
+    <Compile Include="AbstractClasses\StrikeUnitBase.cs" />
+    <Compile Include="Entities\Hamas.cs" />
+    <Compile Include="Entities\Idf.cs" />
+    <Compile Include="Entities\InteligenceMessage.cs" />
+    <Compile Include="Entities\StrikeUnits\Artilery.cs" />
+    <Compile Include="Entities\StrikeUnits\Drone.cs" />
+    <Compile Include="Entities\StrikeUnits\F16.cs" />
+    <Compile Include="Entities\Terrorist.cs" />
+    <Compile Include="Interfaces\IIntelSource.cs" />
+    <Compile Include="Interfaces\IStrikeUnit.cs" />
+    <Compile Include="Manegers\IntelManeger.cs" />
+    <Compile Include="Manegers\MenuManeger.cs" />
+    <Compile Include="Manegers\StrikeManeger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\IntelAccuracyReport.cs" />
+    <Compile Include="Reports\StrikeReport.cs" />
+    <Compile Include="Utils\CalculationHelper.cs" />
+    <Compile Include="Utils\DateTimeHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

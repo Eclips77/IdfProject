@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using IdfProject.Entities.Interfaces;
 
-namespace IdfProject.Entities.Idf.StrikeUnits
+namespace IdfProject.Entities
 {
-    internal class F16 : IStrike
+    internal class Hamas
     {
     }
 }

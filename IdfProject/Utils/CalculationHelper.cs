@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IdfProject
+namespace IdfProject.Utils
 {
-    internal class Program
+    internal class CalculationHelper
     {
-        static void Main(string[] args)
-        {
-            
-        }
     }
 }

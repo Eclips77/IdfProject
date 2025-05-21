@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IdfProject.Entities.Interfaces
+namespace IdfProject.Manegers
 {
-    internal interface IStrike
+    internal class IntelManeger
     {
     }
 }

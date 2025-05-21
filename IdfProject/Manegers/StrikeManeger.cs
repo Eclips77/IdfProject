@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IdfProject
+namespace IdfProject.Manegers
 {
-    internal class Program
+    internal class StrikeManeger
     {
-        static void Main(string[] args)
-        {
-            
-        }
     }
 }

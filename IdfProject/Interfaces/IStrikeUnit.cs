@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IdfProject.Entities.Hamas
+namespace IdfProject.Iterfaces
 {
-    internal class Hamas
+    internal interface IStrikeUnit
     {
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IdfProject.Entities.Idf
+namespace IdfProject.Utils
 {
-    internal class Idf
+    internal class DateTimeHelper
     {
     }
 }

@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IdfProject
+namespace IdfProject.Entities
 {
-    internal class Program
+    internal class Idf
     {
-        static void Main(string[] args)
-        {
-            
-        }
     }
 }

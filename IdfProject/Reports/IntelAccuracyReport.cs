@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IdfProject
+namespace IdfProject.Reports
 {
-    internal class Program
+    internal class IntelAccuracyReport
     {
-        static void Main(string[] args)
-        {
-            
-        }
     }
 }

@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IdfProject
+namespace IdfProject.Iterfaces
 {
-    internal class Program
+    internal interface IIntelSource
     {
-        static void Main(string[] args)
-        {
-            
-        }
     }
 }
