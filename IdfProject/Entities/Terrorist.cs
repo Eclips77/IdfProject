@@ -8,5 +8,17 @@ namespace IdfProject.Entities
 {
     internal class Terrorist
     {
+        private string Name;
+        private string Rank;
+        private bool Alive;
+        private List<string> Weapons;
+
+        public Terrorist(string name, string rank, bool alive, List<string> weapons)
+        {
+            this.Name = name;
+            this.Rank = rank;
+            this.Alive = alive;
+            this.Weapons = weapons;
+        }
     }
 }
