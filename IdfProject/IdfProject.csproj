@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Entities\Hamas\Hamas.cs" />
     <Compile Include="Entities\Hamas\Terrorist.cs" />
+    <Compile Include="Entities\Idf\Aman\Aman.cs" />
+    <Compile Include="Entities\Idf\Idf.cs" />
     <Compile Include="Entities\Idf\StrikeUnits\Artilery.cs" />
     <Compile Include="Entities\Idf\StrikeUnits\Drone.cs" />
     <Compile Include="Entities\Idf\StrikeUnits\F16.cs" />
@@ -55,8 +57,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\Idf\Aman\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

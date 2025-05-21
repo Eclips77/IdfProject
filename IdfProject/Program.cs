@@ -1,4 +1,6 @@
-﻿using System;
+﻿using IdfProject.Entities.Hamas;
+using IdfProject.Entities.Idf.StrikeUnits;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +12,8 @@ namespace IdfProject
     {
         static void Main(string[] args)
         {
+            Hamas o = new Hamas();
+            Artilery os = new Artilery();
         }
     }
 }
