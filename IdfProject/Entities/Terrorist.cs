@@ -28,6 +28,14 @@ namespace IdfProject.Entities
 
         public int GetDangerLevel()
         {
+            int score = 0;
+            foreach (string wepon in this.Weapons)
+            {
+                if (wepon.ToLower() == "m16" || wepon.ToLower() == "ak-47") score += 3;
+                else if (wepon.ToLower() == "handgun") score += 2;
+                else if (wepon.ToLower() == "knife") score += 1;
+            }
+            return this.Rank * score;  
             //int DangerLevel = this.Rank * this.
             return 100;
         }
