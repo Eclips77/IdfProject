@@ -50,17 +50,9 @@ namespace IdfProject.Manegers
         }
 
 
-
-
-
-
         public int GetScoreTerrorist(Terrorist terrorist)
         {
-
-
-
-
-            return 0;
+            return terrorist.GetDangerLevel();
         }
     }
 }

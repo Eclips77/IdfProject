@@ -13,6 +13,7 @@ namespace IdfProject.Entities
         private string CurrentCommander = "Eyal Zamir";
         List<StrikeUnitBase> strikeUnits = new List<StrikeUnitBase>();
 
+
         public void AddStrikeUnit(StrikeUnitBase strikeUnit)
         {
             this.strikeUnits.Add(strikeUnit);
@@ -23,5 +24,18 @@ namespace IdfProject.Entities
             this.strikeUnits.Remove(strikeUnit);
         }
 
+        public List<StrikeUnitBase> GetAllStrikesAvalibel()
+        {
+            List<StrikeUnitBase> avalibelStrikes = new List<StrikeUnitBase>();
+
+            foreach (StrikeUnitBase strike in this.strikeUnits)
+            {
+                if (strike.CanStrike())
+                {
+                    avalibelStrikes.Add(strike);
+                }
+            }
+            return avalibelStrikes;
+        }
     }
 }

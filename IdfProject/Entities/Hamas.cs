@@ -12,6 +12,7 @@ namespace IdfProject.Entities
         private string CurrentCommander = "Muchamad..";
         List<Terrorist> terrorists = new List<Terrorist>();
 
+
         public void AddTerrorist(Terrorist terrorist)
         {
             terrorists.Add(terrorist);
@@ -21,7 +22,6 @@ namespace IdfProject.Entities
         {
             terrorists.Remove(terrorist);
         }
-
 
         public Terrorist GetTerroristByName(string name)
         {
