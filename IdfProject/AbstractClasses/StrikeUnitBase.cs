@@ -13,13 +13,21 @@ namespace IdfProject.AbstractClasses
         {
 
         }
+        public virtual int ChekEmmoCap()
+        {
+            return 0;
+        }
         public virtual void ConsumeAmmo()
         {
 
         }
-        public virtual void CheckFuel()
+        public virtual int CheckFuel()
         {
-
+            return 0;
+        }
+        public virtual void RedouceFuel()
+        {
+            
         }
     }
 }

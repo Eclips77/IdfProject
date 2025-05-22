@@ -9,7 +9,9 @@ namespace IdfProject.Iterfaces
     internal interface IStrikeUnit
     {
         void strike(string location,string target);
+        int ChekEmmoCap();
         void ConsumeAmmo();
-        void CheckFuel();
+        int CheckFuel();
+        void RedouceFuel();
     }
 }
