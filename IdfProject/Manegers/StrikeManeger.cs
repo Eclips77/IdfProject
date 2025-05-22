@@ -21,16 +21,37 @@ namespace IdfProject.Manegers
         public void strikeTerrorist(Terrorist terrorist, string locaition)
         {
             List<StrikeUnitBase> avalibelStrikes = this.Idf.GetAllStrikesAvalibel();
+            SortStrikesByEfectivnes(avalibelStrikes, locaition);
+            if (avalibelStrikes.Count > 0)
+            {
+                StrikeUnitBase chosenStrike = avalibelStrikes[0];
+                chosenStrike.strike(locaition, terrorist);
+            }
+            else
+            {
+                Console.WriteLine("there is no strikes avaleble");
+            }
             
         }
 
+
+
         public void SortStrikesByEfectivnes(List<StrikeUnitBase> strikes, string locaition)
         {
+            // sort the list when the suitabl strikes are first, and less after.
             List<StrikeUnitBase> sortedStrikes = new List<StrikeUnitBase>();
             foreach (StrikeUnitBase strike in strikes)
             {
-                if (strike.GetUseTo())
+                if (strike.GetUseTo() == locaition)
+                {
+                    sortedStrikes.Insert(0, strike);
+                }
+                else
+                {
+                    sortedStrikes.Add(strike);
+                }
             }
+            strikes = sortedStrikes;
         }
 
     }

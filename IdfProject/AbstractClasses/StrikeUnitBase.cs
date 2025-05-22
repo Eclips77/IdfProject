@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IdfProject.Entities;
 using IdfProject.Iterfaces;
 
 namespace IdfProject.AbstractClasses
@@ -12,30 +13,18 @@ namespace IdfProject.AbstractClasses
         string BombType;
         string UseTO;
         int EmmoCap;
-        public virtual void strike(string location,string target)
+        string StrikeName;
+        public  void strike(string location, Terrorist target)
         {
-
+            Console.WriteLine($"\n{this.StrikeName} bombed the target: {target} in the {location}");
         }
-        public virtual int ChekEmmoCap()
-        {
-            return 0;
-        }
-        public virtual void ConsumeAmmo()
-        {
-
-        }
-        public virtual int CheckFuel()
-        {
-            return 0;
-        }
-        public virtual void RedouceFuel()
-        {
-            
-        }
-        public virtual void CoolDown()
-        {
-
-        }
+        public abstract int ChekEmmoCap();
+        public abstract void ConsumeAmmo();
+        public abstract int CheckFuel();
+        public abstract void RedouceFuel();
+        public abstract void CoolDown();
+        public abstract bool CanStrike();
+        public abstract string GetUseTo();
     }
 }
 

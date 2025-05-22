@@ -10,18 +10,16 @@ namespace IdfProject.Entities.StrikeUnits
     internal class Drone : StrikeUnitBase
     {
         string BombType;
-        string UseTo;
+        string UseTo = "person";
         int EmmoCap = 3;
         int Fuel = 100;
+        string StrikeName = "Drone";
 
-        public Drone(string bombType,string useTo,int emmoCap,int fuel)
+        public Drone(string bombType)
         {
             this.BombType = bombType;
-            this.UseTo = useTo;
-            this.EmmoCap = emmoCap;
-            this.Fuel = fuel;
         }
-        public bool CanStrike()
+        public override bool CanStrike()
         {
             if (this.Fuel > 10 && this.EmmoCap > 0)
             {
@@ -29,10 +27,10 @@ namespace IdfProject.Entities.StrikeUnits
             }
             return false;
         }
-        public override void strike(string location, string target)
-        {
-            Console.WriteLine($"Drone attacking the target: {target} in the {location}");
-        }
+        //public override void strike(string location, Terrorist target)
+        //{
+        //    Console.WriteLine($"Drone attacking the target: {target} in the {location}");
+        //}
         public override int ChekEmmoCap()
         {
             return this.EmmoCap;
@@ -53,6 +51,10 @@ namespace IdfProject.Entities.StrikeUnits
         {
             this.EmmoCap = 3;
             this.Fuel = 100;
+        }
+        public override string GetUseTo()
+        {
+            return this.UseTo;
         }
     }
 }

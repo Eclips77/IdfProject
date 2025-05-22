@@ -28,7 +28,16 @@ namespace IdfProject.Entities
 
         public int GetDangerLevel()
         {
-            int DangerLevel = this.Rank * this.
+            //int DangerLevel = this.Rank * this.
+            return 100;
+        }
+
+        public override string ToString()
+        {
+            return $"Name: {this.Name}\n" +
+                $"Rank: {this.Rank}\n" +
+                $"Alive: {this.Alive}\n" +
+                $"Weapons: {this.Weapons}";
         }
 
     }   
