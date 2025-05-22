@@ -20,5 +20,10 @@ namespace IdfProject.Entities
             this.Alive = alive;
             this.Weapons = weapons;
         }
+
+        public string GetName()
+        {
+            return this.Name;
+        }
     }
 }

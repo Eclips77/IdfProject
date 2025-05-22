@@ -9,6 +9,8 @@ namespace IdfProject.Entities.StrikeUnits
 {
     internal class Artilery : StrikeUnitBase
     {
+        string BombType;
+        string UseTo;
         int EmmoCap = 40;
         int Fuel = 100;
 

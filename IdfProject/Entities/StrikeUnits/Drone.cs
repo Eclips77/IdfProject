@@ -9,6 +9,8 @@ namespace IdfProject.Entities.StrikeUnits
 {
     internal class Drone : StrikeUnitBase
     {
+        string BombType;
+        string UseTo;
         int EmmoCap = 3;
         int Fuel = 100;
         public override void strike(string location, string target)

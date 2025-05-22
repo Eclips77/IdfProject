@@ -9,6 +9,9 @@ namespace IdfProject.AbstractClasses
 {
     abstract class StrikeUnitBase : IStrikeUnit
     {
+        string BombType;
+        string UseTO;
+        int EmmoCap;
         public virtual void strike(string location,string target)
         {
 
