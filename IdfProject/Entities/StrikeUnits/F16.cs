@@ -22,7 +22,7 @@ namespace IdfProject.Entities.StrikeUnits
             this.EmmoCap = emmoCap;
             this.Fuel = fuel;
         }
-        public bool CanStrike()
+        public override bool CanStrike()
         {
             if (this.Fuel > 20 && this.EmmoCap > 0)
             {
