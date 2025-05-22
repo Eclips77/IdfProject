@@ -21,5 +21,19 @@ namespace IdfProject.Entities
         {
             terrorists.Remove(terrorist);
         }
+
+
+        public Terrorist GetTerroristByName(string name)
+        {
+            Terrorist wantedTerrorist = null;
+            foreach (Terrorist terrorist in this.terrorists)
+            {
+                if (terrorist.GetName() == name)
+                {
+                    wantedTerrorist = terrorist;
+                }
+            }
+            return wantedTerrorist;
+        }
     }
 }
