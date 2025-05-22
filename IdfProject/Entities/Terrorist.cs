@@ -35,9 +35,7 @@ namespace IdfProject.Entities
                 else if (wepon.ToLower() == "handgun") score += 2;
                 else if (wepon.ToLower() == "knife") score += 1;
             }
-            return this.Rank * score;  
-            //int DangerLevel = this.Rank * this.
-            return 100;
+            return this.Rank * score;
         }
 
         public override string ToString()
