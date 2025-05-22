@@ -8,5 +8,6 @@ namespace IdfProject.Iterfaces
 {
     internal interface IIntelSource
     {
+
     }
 }

@@ -9,11 +9,11 @@ namespace IdfProject.Entities
     internal class Terrorist
     {
         private string Name;
-        private string Rank;
+        private int Rank;
         private bool Alive;
         private List<string> Weapons;
 
-        public Terrorist(string name, string rank, bool alive, List<string> weapons)
+        public Terrorist(string name, int rank, bool alive, List<string> weapons)
         {
             this.Name = name;
             this.Rank = rank;
@@ -25,5 +25,12 @@ namespace IdfProject.Entities
         {
             return this.Name;
         }
-    }
+
+        public int GetDangerLevel()
+        {
+            int DangerLevel = this.Rank * this.
+        }
+
+    }   
+
 }

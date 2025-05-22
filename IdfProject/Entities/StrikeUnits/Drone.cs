@@ -13,6 +13,22 @@ namespace IdfProject.Entities.StrikeUnits
         string UseTo;
         int EmmoCap = 3;
         int Fuel = 100;
+
+        public Drone(string bombType,string useTo,int emmoCap,int fuel)
+        {
+            this.BombType = bombType;
+            this.UseTo = useTo;
+            this.EmmoCap = emmoCap;
+            this.Fuel = fuel;
+        }
+        public bool CanStrike()
+        {
+            if (this.Fuel > 10 && this.EmmoCap > 0)
+            {
+                return true;
+            }
+            return false;
+        }
         public override void strike(string location, string target)
         {
             Console.WriteLine($"Drone attacking the target: {target} in the {location}");
@@ -31,7 +47,12 @@ namespace IdfProject.Entities.StrikeUnits
         }
         public override void RedouceFuel()
         {
-            this.Fuel--;
+            this.Fuel-= 30;
+        }
+        public override void CoolDown()
+        {
+            this.EmmoCap = 3;
+            this.Fuel = 100;
         }
     }
 }

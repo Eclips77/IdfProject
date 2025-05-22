@@ -32,6 +32,10 @@ namespace IdfProject.AbstractClasses
         {
             
         }
+        public virtual void CoolDown()
+        {
+
+        }
     }
 }
 

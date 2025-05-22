@@ -14,6 +14,21 @@ namespace IdfProject.Entities.StrikeUnits
         int EmmoCap = 40;
         int Fuel = 100;
 
+        public Artilery(string bombType, string useTo, int emmoCap, int fuel)
+        {
+            this.BombType = bombType;
+            this.UseTo = useTo;
+            this.EmmoCap = emmoCap;
+            this.Fuel = fuel;
+        }
+        public bool CanStrike()
+        {
+            if (this.Fuel > 20 && this.EmmoCap > 0)
+            {
+                return true;
+            }
+            return false;
+        }
         public override void strike(string location, string target)
         {
             Console.WriteLine($"artilery bombed the target: {target} in the {location}");
@@ -32,7 +47,12 @@ namespace IdfProject.Entities.StrikeUnits
         }
         public override void RedouceFuel()
         {
-            this.Fuel--; 
+            this.Fuel -= 2; 
+        }
+        public override void CoolDown()
+        {
+            this.EmmoCap = 40;
+            this.Fuel = 100;
         }
     }
 }
