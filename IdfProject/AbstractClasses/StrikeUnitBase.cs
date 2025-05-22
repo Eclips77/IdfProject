@@ -9,15 +9,30 @@ namespace IdfProject.AbstractClasses
 {
     abstract class StrikeUnitBase : IStrikeUnit
     {
+        string BombType;
+        string UseTO;
+        int EmmoCap;
         public virtual void strike(string location,string target)
         {
 
+        }
+        public virtual int ChekEmmoCap()
+        {
+            return 0;
         }
         public virtual void ConsumeAmmo()
         {
 
         }
-        public virtual void CheckFuel()
+        public virtual int CheckFuel()
+        {
+            return 0;
+        }
+        public virtual void RedouceFuel()
+        {
+            
+        }
+        public virtual void CoolDown()
         {
 
         }

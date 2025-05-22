@@ -26,11 +26,12 @@ namespace IdfProject.Entities
         public Terrorist GetTerroristByName(string name)
         {
             Terrorist wantedTerrorist = null;
-            foreach (Terrorist terrorist in this.terrorists)
+            foreach (Terrorist terroris in this.terrorists)
             {
-                if (terrorist.GetName() == name)
+                if (terroris.GetName() == name)
                 {
-                    wantedTerrorist = terrorist;
+                    wantedTerrorist = terroris;
+                    break;
                 }
             }
             return wantedTerrorist;
