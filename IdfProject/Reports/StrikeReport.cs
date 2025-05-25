@@ -8,5 +8,6 @@ namespace IdfProject.Reports
 {
     internal class StrikeReport
     {
+
     }
 }

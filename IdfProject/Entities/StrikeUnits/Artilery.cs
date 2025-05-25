@@ -27,22 +27,6 @@ namespace IdfProject.Entities.StrikeUnits
             }
             return false;
         }
-        //public override void strike(string location, Terrorist target)
-        //{
-        //    Console.WriteLine($"{this.StrikeName} bombed the target: {target} in the {location}");
-        //}
-        public override int ChekEmmoCap()
-        {
-            return this.EmmoCap;
-        }
-        public override void ConsumeAmmo()
-        {
-            this.EmmoCap--;
-        }
-        public override int CheckFuel()
-        {
-            return this.Fuel;
-        }
         public override void RedouceFuel()
         {
             this.Fuel -= 2; 
@@ -51,10 +35,6 @@ namespace IdfProject.Entities.StrikeUnits
         {
             this.EmmoCap = 40;
             this.Fuel = 100;
-        }
-        public override string GetUseTo()
-        {
-            return this.UseTo;
         }
     }
 }

@@ -55,6 +55,7 @@
     <Compile Include="Interfaces\IStrikeUnit.cs" />
     <Compile Include="Manegers\IntelManeger.cs" />
     <Compile Include="Manegers\MenuManeger.cs" />
+    <Compile Include="Manegers\ReportManeger.cs" />
     <Compile Include="Manegers\StrikeManeger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

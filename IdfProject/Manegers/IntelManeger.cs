@@ -10,7 +10,7 @@ namespace IdfProject.Manegers
 {
     internal class IntelManeger
     {
-        Hamas Hamas;
+        public Hamas Hamas;
         Dictionary<string, List<InteligenceMessage>> targets = new Dictionary<string, List<InteligenceMessage>>();
 
         public IntelManeger(Hamas hamas)
@@ -24,10 +24,8 @@ namespace IdfProject.Manegers
             {
                 targets[ItelMsg.GetName()] = new List<InteligenceMessage>();
             }
-            targets[ItelMsg.GetName()].Append(ItelMsg);
+            targets[ItelMsg.GetName()].Add(ItelMsg);
         }
-
-
 
         public Terrorist getMostDagerousTerrorist()
         {
@@ -49,10 +47,21 @@ namespace IdfProject.Manegers
             return MostDangarous;
         }
 
-
         public int GetScoreTerrorist(Terrorist terrorist)
         {
             return terrorist.GetDangerLevel();
+        }
+
+        public string GetTheLastLocaition(Terrorist terrorist)
+        {
+            int lastIndex = targets[terrorist.GetName()].Count - 1;
+            string location = targets[terrorist.GetName()][lastIndex].GetLocation();
+            return location;
+        }
+
+        public bool checkExistence(string name)
+        {
+            return targets.ContainsKey(name);
         }
     }
 }
