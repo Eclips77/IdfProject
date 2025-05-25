@@ -43,7 +43,7 @@ namespace IdfProject.Entities
             return $"Name: {this.Name}\n" +
                 $"Rank: {this.Rank}\n" +
                 $"Alive: {this.Alive}\n" +
-                $"Weapons: {this.Weapons}";
+                $"Weapons: {string.Join(", ", this.Weapons)}";
         }
 
     }   

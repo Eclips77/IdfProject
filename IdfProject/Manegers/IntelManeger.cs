@@ -24,7 +24,7 @@ namespace IdfProject.Manegers
             {
                 targets[ItelMsg.GetName()] = new List<InteligenceMessage>();
             }
-            targets[ItelMsg.GetName()].Append(ItelMsg);
+            targets[ItelMsg.GetName()].Add(ItelMsg);
         }
 
 

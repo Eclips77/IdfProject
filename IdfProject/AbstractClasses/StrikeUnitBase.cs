@@ -16,6 +16,8 @@ namespace IdfProject.AbstractClasses
         string StrikeName;
         public  void strike(string location, Terrorist target)
         {
+            ConsumeAmmo();
+            RedouceFuel();
             Console.WriteLine($"\n{this.StrikeName} bombed the target: {target} in the {location}");
         }
         public abstract int ChekEmmoCap();
