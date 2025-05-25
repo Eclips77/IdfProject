@@ -37,5 +37,19 @@ namespace IdfProject.Entities
             }
             return avalibelStrikes;
         }
+
+        public void strikeTerrorist(string location, string weapon, Terrorist terrorist)
+        {
+            int index = -1;
+            for (int i = 0; i < strikeUnits.Count(); i++)
+            {
+                if (strikeUnits[i].GetStrikeName() == weapon)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            strikeUnits[index].strike(location, terrorist);
+        }
     }
 }

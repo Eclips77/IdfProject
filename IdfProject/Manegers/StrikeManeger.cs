@@ -11,14 +11,14 @@ namespace IdfProject.Manegers
 {
     internal class StrikeManeger
     {
-        Idf Idf;
+        public Idf Idf;
 
         public StrikeManeger(Idf idf)
         {
             this.Idf = idf;
         }
 
-        public void strikeTerrorist(Terrorist terrorist, string locaition)
+        public void ssssstrikeTerrorist(Terrorist terrorist, string locaition)
         {
             List<StrikeUnitBase> avalibelStrikes = this.Idf.GetAllStrikesAvalibel();
             SortStrikesByEfectivnes(avalibelStrikes, locaition);
@@ -31,27 +31,56 @@ namespace IdfProject.Manegers
             {
                 Console.WriteLine("there is no strikes avaleble");
             }
-            
+
         }
 
 
+        //public void strikeTerrorist(string weapon, string terrorist)
+        //{
+        //    List<StrikeUnitBase> avalibelStrikes = this.Idf.GetAllStrikesAvalibel();
+        //    StrikeUnitBase chosenWeapon = avalibelStrikes.;
+        //}
 
         public void SortStrikesByEfectivnes(List<StrikeUnitBase> strikes, string locaition)
         {
             // sort the list when the suitabl strikes are first, and less after.
-            List<StrikeUnitBase> sortedStrikes = new List<StrikeUnitBase>();
-            foreach (StrikeUnitBase strike in strikes)
+            //List<StrikeUnitBase> sortedStrikes = new List<StrikeUnitBase>();
+            //foreach (StrikeUnitBase strike in strikes)
+            //{
+            //    if (strike.GetUseTo() == locaition)
+            //    {
+            //        sortedStrikes.Insert(0, strike);
+            //    }
+            //    else
+            //    {
+            //        sortedStrikes.Add(strike);
+            //    }
+            //}
+            //strikes = sortedStrikes;
+
+
+            strikes.Sort((a, b) =>
             {
-                if (strike.GetUseTo() == locaition)
+                bool aMech = a.GetUseTo() == locaition;
+                bool bMech = b.GetUseTo() == locaition;
+                return aMech == bMech ? 0 : (aMech ? -1 : 1);
+            });
+        }
+
+
+        public bool checkAvalability(string weapon)
+        {
+            List<StrikeUnitBase> avalebalStrikes = Idf.GetAllStrikesAvalibel();
+            bool available = false;
+            foreach (StrikeUnitBase strikeUnit in avalebalStrikes)
+            {
+                if (strikeUnit.GetStrikeName() == weapon)
                 {
-                    sortedStrikes.Insert(0, strike);
-                }
-                else
-                {
-                    sortedStrikes.Add(strike);
+                    available = true;
+                    break;
                 }
             }
-            strikes = sortedStrikes;
+            return available;
         }
 
     }

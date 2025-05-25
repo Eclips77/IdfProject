@@ -25,5 +25,10 @@ namespace IdfProject.Entities
         {
             return this.Name;
         }
+
+        public string GetLocation()
+        {
+            return this.Location;
+        }
     }
 }
