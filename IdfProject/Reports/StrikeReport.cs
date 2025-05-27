@@ -14,7 +14,7 @@ namespace IdfProject.Reports
         string WeaponInUse;
         bool AttackResult;
         int AmmoCapLeft;
-        public StrikeReport(string tagetName,string attckComander,)
+        public StrikeReport(string tagetName,string attckComander)
         {
 
         }

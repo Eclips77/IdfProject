@@ -40,10 +40,9 @@ namespace IdfProject.Utils
             return t;
         }
 
-        public StrikeUnitBase CreateRandomStrikeUnit()
+        public StrikeUnitBase CreateStrikeUnit(int choice)
         {
-            int choice = rnd.Next(3);
-            string bomb = bombTypes[rnd.Next(bombTypes.Length)];
+            string bomb = bombTypes[rnd.Next(bombTypes.Length)]; 
             switch (choice)
             {
                 case 0:
@@ -54,12 +53,12 @@ namespace IdfProject.Utils
                     return new Artilery(bomb);
             }
         }
-        public List<StrikeUnitBase> CreateStrikeUnits(int count)
+        public List<StrikeUnitBase> CreateStrikeUnitsList()
         {
             var list = new List<StrikeUnitBase>();
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < 3; i++)
             {
-                list.Add(CreateRandomStrikeUnit());
+                list.Add(CreateStrikeUnit(i));
             }
             return list;
         }
