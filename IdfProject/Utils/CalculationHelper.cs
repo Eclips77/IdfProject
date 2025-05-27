@@ -29,7 +29,6 @@ namespace IdfProject.Utils
             var terrorist = new Terrorist(name, rank, alive, weapons);
             return terrorist;
         }
-
         public List<Terrorist> CreateTerroristList(int count)
         {
             List<Terrorist> t = new List<Terrorist>();
@@ -39,7 +38,6 @@ namespace IdfProject.Utils
             }
             return t;
         }
-
         public StrikeUnitBase CreateStrikeUnit(int choice)
         {
             string bomb = bombTypes[rnd.Next(bombTypes.Length)]; 
@@ -55,7 +53,7 @@ namespace IdfProject.Utils
         }
         public List<StrikeUnitBase> CreateStrikeUnitsList()
         {
-            var list = new List<StrikeUnitBase>();
+            List<StrikeUnitBase> list = new List<StrikeUnitBase>();
             for (int i = 0; i < 3; i++)
             {
                 list.Add(CreateStrikeUnit(i));

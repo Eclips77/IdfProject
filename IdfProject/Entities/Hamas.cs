@@ -36,5 +36,10 @@ namespace IdfProject.Entities
             }
             return wantedTerrorist;
         }
+
+        public List<Terrorist> GetListTerrorist()
+        {
+            return this.terrorists;
+        }
     }
 }

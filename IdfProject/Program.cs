@@ -53,7 +53,33 @@ namespace IdfProject
 
             MenuManeger maneger = new MenuManeger(intelManeger, reportManeger, strikeManeger);
 
+
+            Factory factory = new Factory();
+            //for (int i = 0; i < 20; i++)
+            //{
+            //    hamas.AddTerrorist(factory.CreateTerrorist());
+            //}
+
+
+            //InteligenceMessage inteligenceMessage = new InteligenceMessage("muhamad", "home", DateTime.Now, "syber");
+            //intelManeger.AddInteligenceMessage(inteligenceMessage);
+
+
+
+            for (int i = 0; i < 20; i++)
+            {
+                hamas.AddTerrorist(factory.CreateTerrorist());
+            }
+            List<Terrorist> terrorists = hamas.GetListTerrorist();
+
+            foreach(Terrorist terrorist in terrorists)
+            {
+                InteligenceMessage inteligenceMessage = new InteligenceMessage(terrorist.GetName(), "home", DateTime.Now, "syber");
+                intelManeger.AddInteligenceMessage(inteligenceMessage);
+            }
+
             maneger.MainMenu();
+
         }
     }
 }

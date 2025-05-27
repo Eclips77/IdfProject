@@ -46,147 +46,159 @@ namespace IdfProject.Manegers
 
         public void MainMenu()
         {
-            Console.WriteLine("___welcome to main menu console!___\n" +
+            bool running = true;
+            while (running)
+            {
+                Console.WriteLine("___welcome to main menu console!___\n" +
                 "1. show command console\n" +
                 "5000. to exit\n");
-            string choice = Console.ReadLine();
+                string choice = Console.ReadLine();
+                Console.Clear();
 
-            switch (choice)
-            {
-                case "1":
-                    ShowMenu();
-                    break;
-                case "5000":
-                    Console.WriteLine("have a good day");
-                    break;
-                default:
-                    Console.WriteLine("invalid choice");
-                    MainMenu();
-                    break;
+                switch (choice)
+                {
+                    case "1":
+                        ShowMenu();
+                        break;
+                    case "5000":
+                        Console.WriteLine("have a good day");
+                        running = false;
+                        break;
+                    default:
+                        Console.WriteLine("invalid choice");
+                        break;
+                }
             }
+            
         }
         public void ShowMenu()
         {
-            Console.WriteLine("___welcome to comand console!___\n" +
+            bool running = true;
+            while (running)
+            {
+                Console.WriteLine("___welcome to comand console!___\n" +
                 "1. show real time intelegence\n" +
                 "2. show availabel ammunition\n" +
                 "3. execute attack\n" +
                 "4. show attack reports\n" +
-                "5. to main menu\n");
-            string choice = Console.ReadLine();
+                "5. go back\n");
+                string choice = Console.ReadLine();
+                Console.Clear();
 
-            switch (choice)
-            {
-                case "1":
-                    IntelegenceMenu();
-                    break;
-                case "2":
-                    AmmunitionMenu();
-                    break;
-                case "3":
-                    ExecuteAttack();
-                    break;
-                case "4":
-                    ReportsMenu();
-                    break;
-                case "5":
-                    MainMenu();
-                    break;
-                default:
-                    Console.WriteLine("invalid choice");
-                    ShowMenu();
-                    break;
+                switch (choice)
+                {
+                    case "1":
+                        IntelegenceMenu();
+                        break;
+                    case "2":
+                        AmmunitionMenu();
+                        break;
+                    case "3":
+                        ExecuteAttack();
+                        break;
+                    case "4":
+                        ReportsMenu();
+                        break;
+                    case "5":
+                        running = false;
+                        break;
+                    default:
+                        Console.WriteLine("invalid choice");
+                        break;
+                }
             }
-            MainMenu();
         }
-
-
-
-
-
-
         public void IntelegenceMenu()
         {
-            Console.WriteLine("1. show a list of all targets\n" +
+            bool running = true;
+            while (running)
+            {
+                Console.WriteLine("1. show a list of all targets\n" +
                 "2. show the most reported terrorist\n" +
                 "3. show the most dangerous torrorist\n" +
-                "4. to mai menu");
+                "4. go back");
+                string choice = Console.ReadLine();
+                Console.Clear();
 
-            string choice = Console.ReadLine();
-
-            switch (choice)
-            {
-                case "1":
-                    IntelManeger.ShowListOfTargets();
-                    break;
-                case "2":
-                    IntelManeger.ShowTheMostReportedTerrorist();
-                    break;
-                case "3":
-                    Console.WriteLine(IntelManeger.getMostDagerousTerrorist());
-                    break;
-                case "4":
-                    MainMenu();
-                    break;
-                default:
-                    Console.WriteLine("invalid choice");
-                    IntelegenceMenu();
-                    break;
+                switch (choice)
+                {
+                    case "1":
+                        IntelManeger.ShowListOfTargets();
+                        break;
+                    case "2":
+                        IntelManeger.ShowTheMostReportedTerrorist();
+                        break;
+                    case "3":
+                        Console.WriteLine($"the most dangerous terrorist is:\n{IntelManeger.getMostDagerousTerrorist()}");
+                        break;
+                    case "4":
+                        running = false;
+                        break;
+                    default:
+                        Console.WriteLine("invalid choice");
+                        break;
+                }
             }
-            MainMenu();
+            
         }
-
         public void AmmunitionMenu()
         {
-            Console.WriteLine("1. show a list of all striks\n" +
-                "2. show only availabel strikes\n" +
-                "3. to main menu");
-            string choice = Console.ReadLine();
-
-            switch (choice)
+            bool running = true;
+            while (running)
             {
-                case "1":
-                    StrikeManeger.ShowAllStriks();
-                    break;
-                case "2":
-                    StrikeManeger.ShowAvailabelAllStriks();
-                    break;
-                case "3":
-                    MainMenu();
-                    break;
-                default:
-                    Console.WriteLine("invalid choice");
-                    AmmunitionMenu();
-                    break;
-            }
-            MainMenu();
-        }
+                Console.WriteLine("1. show a list of all striks\n" +
+                "2. show only availabel strikes\n" +
+                "3. go back");
+                string choice = Console.ReadLine();
+                Console.Clear();
 
+                switch (choice)
+                {
+                    case "1":
+                        StrikeManeger.ShowAllStriks();
+                        break;
+                    case "2":
+                        StrikeManeger.ShowAvailabelAllStriks();
+                        break;
+                    case "3":
+                        running = false;
+                        break;
+                    default:
+                        Console.WriteLine("invalid choice");
+                        break;
+                }
+            }
+            
+        }
         public void ReportsMenu()
         {
-            Console.WriteLine("1. show a list of all reports\n" +
+            bool runing = true;
+            while (runing)
+            {
+                Console.WriteLine("1. show a list of all reports\n" +
                 "2. show reports by date\n" +
                 "3. show reports by unit name\n" +
-                "4. to main menu\n");
-            string choice = Console.ReadLine();
+                "4. go back\n");
+                string choice = Console.ReadLine();
+                Console.Clear();
 
-            switch (choice)
-            {
-                case "1":
-                    break;
-                case "2":
-                    break;
-                case "3":
-                    break;
-                case "4":
-                    MainMenu();
-                    break;
-                default:
-                    Console.WriteLine("invalid choice");
-                    ReportsMenu();
-                    break;
+                switch (choice)
+                {
+                    case "1":
+                        break;
+                    case "2":
+                        break;
+                    case "3":
+                        break;
+                    case "4":
+                        runing = false;
+                        break;
+                    default:
+                        Console.WriteLine("invalid choice");
+                        break;
+                }
             }
-            MainMenu();
+            
         }
 
 
