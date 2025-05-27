@@ -13,36 +13,46 @@ namespace IdfProject
     {
         static void Main(string[] args)
         {
+            //Hamas hamas = new Hamas();
+            //IntelManeger intelManeger = new IntelManeger(hamas);
+
+            //Terrorist a = new Terrorist("hamor", 5, true, new List<string> { "M16", "gun"});
+            //Terrorist b = new Terrorist("sus", 5, true, new List<string> { "M16", "gun"});
+
+            //hamas.AddTerrorist(a);
+            //hamas.AddTerrorist(b);
+
+            //InteligenceMessage intelMSG = new InteligenceMessage("sus", "bus", DateTime.Now, "syber");
+            //intelManeger.AddInteligenceMessage(intelMSG);
+
+            //Terrorist terrrrrr = intelManeger.getMostDagerousTerrorist();
+            //Console.WriteLine(terrrrrr);
+
+
+
+
+            //Idf idf = new Idf();
+            //StrikeManeger strikeManeger = new StrikeManeger(idf);
+
+            //Artilery artilery = new Artilery("t5");
+            //F16 F16 = new F16("t5");
+            //Drone Drone = new Drone("t5");
+            //idf.AddStrikeUnit(artilery);
+            //idf.AddStrikeUnit(F16);
+            //idf.AddStrikeUnit(Drone);
+
+            //strikeManeger.strikeTerrorist(terrrrrr, "home");
             Hamas hamas = new Hamas();
             IntelManeger intelManeger = new IntelManeger(hamas);
-
-            Terrorist a = new Terrorist("hamor", 5, true, new List<string> { "M16", "gun"});
-            Terrorist b = new Terrorist("sus", 5, true, new List<string> { "M16", "gun"});
-
-            hamas.AddTerrorist(a);
-            hamas.AddTerrorist(b);
-
-            InteligenceMessage intelMSG = new InteligenceMessage("sus", "bus", DateTime.Now, "syber");
-            intelManeger.AddInteligenceMessage(intelMSG);
-
-            Terrorist terrrrrr = intelManeger.getMostDagerousTerrorist();
-            Console.WriteLine(terrrrrr);
-
-
-
 
             Idf idf = new Idf();
             StrikeManeger strikeManeger = new StrikeManeger(idf);
 
-            Artilery artilery = new Artilery("t5");
-            F16 F16 = new F16("t5");
-            Drone Drone = new Drone("t5");
-            idf.AddStrikeUnit(artilery);
-            idf.AddStrikeUnit(F16);
-            idf.AddStrikeUnit(Drone);
+            ReportManeger reportManeger = new ReportManeger();
 
-            strikeManeger.strikeTerrorist(terrrrrr, "home");
+            MenuManeger maneger = new MenuManeger(intelManeger, reportManeger, strikeManeger);
 
+            maneger.MainMenu();
         }
     }
 }

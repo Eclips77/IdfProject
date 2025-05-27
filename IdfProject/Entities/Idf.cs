@@ -38,18 +38,36 @@ namespace IdfProject.Entities
             return avalibelStrikes;
         }
 
+        public List<StrikeUnitBase> GetAllStriks()
+        {
+            return this.strikeUnits;
+        }
+
         public void strikeTerrorist(string location, string weapon, Terrorist terrorist)
         {
-            int index = -1;
-            for (int i = 0; i < strikeUnits.Count(); i++)
+            List<StrikeUnitBase> availabelStrikes = GetAllStrikesAvalibel();
+            foreach(StrikeUnitBase strike in availabelStrikes)
             {
-                if (strikeUnits[i].GetStrikeName() == weapon)
+                if (strike.GetStrikeName() == weapon)
                 {
-                    index = i;
+                    strike.strike(location, terrorist);
                     break;
                 }
             }
-            strikeUnits[index].strike(location, terrorist);
+
+
+
+
+            //int index = -1;
+            //for (int i = 0; i < strikeUnits.Count(); i++)
+            //{
+            //    if (strikeUnits[i].GetStrikeName() == weapon)
+            //    {
+            //        index = i;
+            //        break;
+            //    }
+            //}
+            //strikeUnits[index].strike(location, terrorist);
         }
     }
 }

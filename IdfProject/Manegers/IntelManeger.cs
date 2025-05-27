@@ -63,5 +63,29 @@ namespace IdfProject.Manegers
         {
             return targets.ContainsKey(name);
         }
+
+        public void ShowListOfTargets()
+        {
+            Console.WriteLine("here are all the targets:");
+            foreach(string terrorist in targets.Keys)
+            {
+                Console.WriteLine(terrorist);
+            }
+        }
+
+        public void ShowTheMostReportedTerrorist()
+        {
+            int len = 0;
+            string mostReported = "";
+            foreach(var terrorist in targets)
+            {
+                if (terrorist.Value.Count > len)
+                {
+                    len = terrorist.Value.Count;
+                    mostReported = terrorist.Key;
+                }
+            }
+            Console.WriteLine($"the most reported terrorist is: {mostReported}, {len} reports have been found.");
+        }
     }
 }

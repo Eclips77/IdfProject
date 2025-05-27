@@ -44,6 +44,14 @@ namespace IdfProject.AbstractClasses
         {
             return this.StrikeName;
         }
+        public override string ToString()
+        {
+            return $"BombType: {BombType}\n" +
+                $"UseTo: {UseTo}\n" +
+                $"EmmoCap: {EmmoCap}\n" +
+                $"StrikeName: {StrikeName}\n" +
+                $"Fuel: {Fuel}\n";
+        }
     }
 }
 

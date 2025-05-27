@@ -46,116 +46,150 @@ namespace IdfProject.Manegers
 
 
 
-
-
-
-        public string ShowMenu()
+        public void MainMenu()
         {
-            Console.WriteLine("___welcome to comand console!___\n");
-            Console.WriteLine("1. execute attack !!!!:\n");
-            Console.WriteLine("2. get intelegence on hamas:\n");
-            Console.WriteLine("3. get intelegence on idf:\n");
-            Console.WriteLine("4. get intelegence on all targets:\n");
+            Console.WriteLine("___welcome to main menu console!___\n" +
+                "1. show command console\n" +
+                "5000. to exit\n");
             string choice = Console.ReadLine();
-            return choice;
-        }
 
-
-        public void HandelMenuChoice(string choice)
-        {
             switch (choice)
             {
                 case "1":
+                    ShowMenu();
+                    break;
+                case "5000":
+                    Console.WriteLine("have a good day");
+                    break;
+                default:
+                    Console.WriteLine("invalid choice");
+                    MainMenu();
+                    break;
+            }
+        }
+        public void ShowMenu()
+        {
+            Console.WriteLine("___welcome to comand console!___\n" +
+                "1. show real time intelegence\n" +
+                "2. show availabel ammunition\n" +
+                "3. execute attack\n" +
+                "4. show attack reports\n" +
+                "5. to main menu\n");
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    IntelegenceMenu();
+                    break;
+                case "2":
+                    AmmunitionMenu();
+                    break;
+                case "3":
                     ExecuteAttack();
+                    break;
+                case "4":
+                    ReportsMenu();
+                    break;
+                case "5":
+                    MainMenu();
+                    break;
+                default:
+                    Console.WriteLine("invalid choice");
+                    ShowMenu();
+                    break;
+            }
+            MainMenu();
+        }
+
+
+
+
+
+
+        public void IntelegenceMenu()
+        {
+            Console.WriteLine("1. show a list of all targets\n" +
+                "2. show the most reported terrorist\n" +
+                "3. show the most dangerous torrorist\n" +
+                "4. to mai menu");
+
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    IntelManeger.ShowListOfTargets();
+                    break;
+                case "2":
+                    IntelManeger.ShowTheMostReportedTerrorist();
+                    break;
+                case "3":
+                    Console.WriteLine(IntelManeger.getMostDagerousTerrorist());
+                    break;
+                case "4":
+                    MainMenu();
+                    break;
+                default:
+                    Console.WriteLine("invalid choice");
+                    IntelegenceMenu();
+                    break;
+            }
+            MainMenu();
+        }
+
+        public void AmmunitionMenu()
+        {
+            Console.WriteLine("1. show a list of all striks\n" +
+                "2. show only availabel strikes\n" +
+                "3. to main menu");
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    StrikeManeger.ShowAllStriks();
+                    break;
+                case "2":
+                    StrikeManeger.ShowAvailabelAllStriks();
+                    break;
+                case "3":
+                    MainMenu();
+                    break;
+                default:
+                    Console.WriteLine("invalid choice");
+                    AmmunitionMenu();
+                    break;
+            }
+            MainMenu();
+        }
+
+        public void ReportsMenu()
+        {
+            Console.WriteLine("1. show a list of all reports\n" +
+                "2. show reports by date\n" +
+                "3. show reports by unit name\n" +
+                "4. to main menu\n");
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
                     break;
                 case "2":
                     break;
                 case "3":
                     break;
+                case "4":
+                    MainMenu();
+                    break;
                 default:
                     Console.WriteLine("invalid choice");
+                    ReportsMenu();
                     break;
             }
+            MainMenu();
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //public string  ShowMenu()
-        //{
-        //    Console.WriteLine("___welcome to comand console!___\n");
-        //    Console.WriteLine("1. intelegence on hamas:\n");
-        //    Console.WriteLine("2. avalibale attack units:\n");
-        //    Console.WriteLine("3. all the targets:\n");
-        //    Console.WriteLine("4. to attack console:\n");
-        //    string choice =Console.ReadLine();
-        //    return choice;
-        //}
-
-        //public string ShowHamasMenu()
-        //{
-        //    Console.WriteLine("___welcome to hamas console!___\n");
-        //    Console.WriteLine("1. date of establishment:\n");
-        //    Console.WriteLine("2. commanders name:\n");
-        //    Console.WriteLine("3. all the terrorists:\n");  /////
-        //    Console.WriteLine("3. all alive terrorists:\n");
-        //    string choice = Console.ReadLine();
-        //    return choice;
-        //}
-
-        //public string ShowUnitsMenu()
-        //{
-        //    Console.WriteLine("___welcome to attack console!___\n");
-        //    Console.WriteLine("1. show all strikes:\n");
-        //    Console.WriteLine("2. avalibale attack units:\n");
-        //    Console.WriteLine("3. show only one type (F16 / Drone / Artilary):\n");
-        //    string choice = Console.ReadLine();
-        //    return choice;
-        //}
-
-        //public string ShowTargetsMenu()
-        //{
-        //    Console.WriteLine("___welcome to target console!___\n");
-        //    Console.WriteLine("1. :\n");
-        //    Console.WriteLine("2. avalibale attack units:\n");
-        //    Console.WriteLine("3. all the targets:\n");
-        //    string choice = Console.ReadLine();
-        //    return choice;
-        //}
-
-        //public string ShowAttackMenu()
-        //{
-        //    Console.WriteLine("___welcome to attack console!___\n");
-        //    Console.WriteLine("1. get the most dangerous terrorist:\n");
-        //    Console.WriteLine("2. strike terrorist:\n");
-        //    Console.WriteLine("3. all the targets:\n");
-        //    string choice = Console.ReadLine();
-        //    return choice;
-        //}
-
-
-
 
 
 

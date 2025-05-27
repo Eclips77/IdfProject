@@ -83,5 +83,22 @@ namespace IdfProject.Manegers
             return available;
         }
 
+        public void ShowAllStriks()
+        {
+            List<StrikeUnitBase> strikeUnits = Idf.GetAllStriks();
+            PrintListStriks(strikeUnits);
+        }
+        public void ShowAvailabelAllStriks()
+        {
+            List<StrikeUnitBase> strikeUnitsAvalibel = Idf.GetAllStrikesAvalibel();
+            PrintListStriks(strikeUnitsAvalibel);
+        }
+        public void PrintListStriks(List<StrikeUnitBase> strikeUnits)
+        {
+            foreach(StrikeUnitBase strikeUnit in strikeUnits)
+            {
+                Console.WriteLine(strikeUnit);
+            }
+        }
     }
 }
