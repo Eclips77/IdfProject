@@ -1,4 +1,5 @@
-﻿using IdfProject.Entities;
+﻿using IdfProject.AbstractClasses;
+using IdfProject.Entities;
 using IdfProject.Entities.StrikeUnits;
 using IdfProject.Manegers;
 using IdfProject.Utils;
@@ -54,6 +55,7 @@ namespace IdfProject
             MenuManeger maneger = new MenuManeger(intelManeger, reportManeger, strikeManeger);
 
             maneger.MainMenu();
+
         }
     }
 }
