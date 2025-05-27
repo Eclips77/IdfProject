@@ -41,7 +41,14 @@ namespace IdfProject.Manegers
             }
         }
 
-
+        public string MainMenu()
+        {
+            Console.WriteLine("___welcome to main menu console!___\n" +
+                "1. show command consloe\n" +
+                " ");
+            string choice = Console.ReadLine();
+            return choice;
+        }
 
 
 

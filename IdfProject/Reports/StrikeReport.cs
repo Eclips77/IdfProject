@@ -8,11 +8,15 @@ namespace IdfProject.Reports
 {
     internal class StrikeReport
     {
+        
         string TargetName;
         string attackCommander;
         string WeaponInUse;
         bool AttackResult;
         int AmmoCapLeft;
+        public StrikeReport(string tagetName,string attckComander,)
+        {
 
+        }
     }
 }
