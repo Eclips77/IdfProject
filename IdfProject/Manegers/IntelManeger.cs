@@ -58,21 +58,48 @@ namespace IdfProject.Manegers
             string location = targets[terrorist.GetName()][lastIndex].GetLocation();
             return location;
         }
+        public void GetTheLastLocaitionByName()
+        {
+            Console.WriteLine("enter the name of the terrorist");
+            string name = Console.ReadLine();
 
+            if (targets.ContainsKey(name))
+            {
+                int lastIndex = targets[name].Count - 1;
+                string location = targets[name][lastIndex].GetLocation();
+                DateTime timeStamp = targets[name][lastIndex].GetDateTime();
+                Console.WriteLine($"\nthe terrorist was found the last time at {location}\nTime: {timeStamp}\n");
+            }
+            else
+            {
+                Console.WriteLine($"{name} was not found");
+            }
+            
+        }
         public bool checkExistence(string name)
         {
             return targets.ContainsKey(name);
         }
 
-        public void ShowListOfTargets()
+        public void ShowListOfTargetsAndReports()
         {
             Console.WriteLine("here are all the targets:");
             foreach(string terrorist in targets.Keys)
             {
-                Console.WriteLine(terrorist);
+                Console.WriteLine($"intel reports on {terrorist}:");
+                PrintIntelRepots(terrorist);
+                Console.WriteLine("*************************");
             }
         }
 
+        public void PrintIntelRepots(string name)
+        {
+            foreach(InteligenceMessage message in targets[name])
+            {
+                Console.WriteLine(message);
+            }
+            
+        }
         public void ShowTheMostReportedTerrorist()
         {
             int len = 0;
@@ -86,6 +113,11 @@ namespace IdfProject.Manegers
                 }
             }
             Console.WriteLine($"the most reported terrorist is: {mostReported}, {len} reports have been found.");
+        }
+
+        public void RemoveTarget(string name)
+        {
+            targets.Remove(name);
         }
     }
 }

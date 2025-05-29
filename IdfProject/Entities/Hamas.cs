@@ -12,7 +12,18 @@ namespace IdfProject.Entities
         private string CurrentCommander = "Muchamad..";
         List<Terrorist> terrorists = new List<Terrorist>();
 
-
+        public void KillTerroristByName(string name)
+        {
+            foreach(Terrorist terrorist in terrorists)
+            {
+                if (terrorist.GetName() == name)
+                {
+                    terrorist.KillTerrorist();
+                    break;
+                }
+            }
+        }
+        
         public void AddTerrorist(Terrorist terrorist)
         {
             terrorists.Add(terrorist);
@@ -40,6 +51,43 @@ namespace IdfProject.Entities
         public List<Terrorist> GetListTerrorist()
         {
             return this.terrorists;
+        }
+
+        public List<Terrorist> GetAllTerrorist()
+        {
+            return this.terrorists;
+        }
+        public List<Terrorist> GetAliveTerrorist()
+        {
+            List<Terrorist> terrorists = new List<Terrorist>();
+            foreach(Terrorist terrorist in terrorists)
+            {
+                if (terrorist.IsAlive())
+                {
+                    terrorists.Add(terrorist);
+                }
+            }
+            return terrorists;
+        }
+        public List<Terrorist> GetDedTerrorist()
+        {
+            List<Terrorist> terrorists = new List<Terrorist>();
+            foreach (Terrorist terrorist in terrorists)
+            {
+                if (!terrorist.IsAlive())
+                {
+                    terrorists.Add(terrorist);
+                }
+            }
+            return terrorists;
+        }
+        public void PrintTerrorists(List<Terrorist> terrorists)
+        {
+            Console.WriteLine($"Thre is {terrorists.Count} terrorists:");
+            foreach(Terrorist terrorist in terrorists)
+            {
+                Console.WriteLine(terrorist);
+            }
         }
     }
 }

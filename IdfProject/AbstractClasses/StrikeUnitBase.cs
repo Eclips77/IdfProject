@@ -10,16 +10,30 @@ namespace IdfProject.AbstractClasses
 {
     abstract class StrikeUnitBase : IStrikeUnit
     {
-        string BombType;
-        string UseTo;
-        int EmmoCap;
-        string StrikeName;
-        int Fuel;
-        public  void strike(string location, Terrorist target)
+        protected string BombType { get; set; }
+        protected string UseTo { get; set; }
+        protected int EmmoCap { get; set; }
+        protected string StrikeName { get; set; }
+        protected int Fuel { get; set; }
+
+        Random rnd = new Random();
+
+        public StrikeUnitBase(string BombType, string UseTo, int EmmoCap, string StrikeName, int Fuel)
         {
+            this.BombType = BombType;
+            this.UseTo = UseTo;
+            this.EmmoCap = EmmoCap;
+            this.StrikeName = StrikeName;
+            this.Fuel = Fuel;
+        }
+
+        public bool strike(string location, Terrorist target)
+        {
+            int num = rnd.Next(5);
             ConsumeAmmo();
             RedouceFuel();
             Console.WriteLine($"\n{this.StrikeName} bombed the target: {target} in the {location}");
+            return num != 0;
         }
         public int ChekEmmoCap()
         {
@@ -46,10 +60,11 @@ namespace IdfProject.AbstractClasses
         }
         public override string ToString()
         {
-            return $"BombType: {BombType}\n" +
+            return 
+                $"StrikeName: {StrikeName}\n" +
+                $"BombType: {BombType}\n" +
                 $"UseTo: {UseTo}\n" +
                 $"EmmoCap: {EmmoCap}\n" +
-                $"StrikeName: {StrikeName}\n" +
                 $"Fuel: {Fuel}\n";
         }
     }

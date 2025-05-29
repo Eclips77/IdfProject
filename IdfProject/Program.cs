@@ -73,11 +73,28 @@ namespace IdfProject
             }
             List<Terrorist> terrorists = hamas.GetListTerrorist();
 
-            foreach(Terrorist terrorist in terrorists)
+            foreach (Terrorist terrorist in terrorists)
             {
                 InteligenceMessage inteligenceMessage = new InteligenceMessage(terrorist.GetName(), "home", DateTime.Now, "syber");
                 intelManeger.AddInteligenceMessage(inteligenceMessage);
             }
+
+            for (int i = 0; i < 20; i++)
+            {
+                Artilery artilery = new Artilery("ton");
+                Drone drone = new Drone("half ton");
+                F16 f16 = new F16("ton");
+                idf.AddStrikeUnit(artilery);
+                idf.AddStrikeUnit(drone);
+                idf.AddStrikeUnit(f16);
+            }
+            
+            
+
+
+
+
+
 
             maneger.MainMenu();
 

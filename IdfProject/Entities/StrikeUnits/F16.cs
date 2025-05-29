@@ -10,13 +10,7 @@ namespace IdfProject.Entities.StrikeUnits
 {
     internal class F16 : StrikeUnitBase
     {
-        string BombType;
-        string UseTo = "building";
-        int EmmoCap = 8;
-        int Fuel = 100;
-        string StrikeName = "F16";
-
-        public F16(string bombType)
+        public F16(string bombType) : base(bombType, "building", 8, "F16", 100)
         {
             this.BombType = bombType;
         }

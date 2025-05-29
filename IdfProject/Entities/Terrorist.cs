@@ -26,6 +26,11 @@ namespace IdfProject.Entities
             return this.Name;
         }
 
+        public void KillTerrorist()
+        {
+            this.Alive = false;
+        }
+
         public int GetDangerLevel()
         {
             int score = 0;
@@ -38,12 +43,17 @@ namespace IdfProject.Entities
             return this.Rank * score;
         }
 
+        public bool IsAlive()
+        {
+            return this.Alive;
+        }
+
         public override string ToString()
         {
             return $"Name: {this.Name}\n" +
                 $"Rank: {this.Rank}\n" +
                 $"Alive: {this.Alive}\n" +
-                $"Weapons: {string.Join(", ", this.Weapons)}";
+                $"Weapons: {string.Join(", ", this.Weapons)}\n";
         }
 
     }   

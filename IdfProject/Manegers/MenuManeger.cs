@@ -1,4 +1,5 @@
 ﻿using IdfProject.Entities;
+using IdfProject.Reports;
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
@@ -25,21 +26,61 @@ namespace IdfProject.Manegers
 
         public void ExecuteAttack()
         {
-            Console.WriteLine("enter the name of the terrorist");
-            string name = Console.ReadLine();
-            Console.WriteLine("enter the type of the weapon to strike");
-            string weapon = Console.ReadLine();
-            if (IntelManeger.checkExistence(name.ToLower()) && StrikeManeger.checkAvalability(weapon))
+            var detailes = AskForAttackDetailes();
+            bool canAttack = ValidateAttackDetailes(detailes.terroristName, detailes.weaponToUse);
+            if (canAttack)
             {
-                Terrorist terrorist = IntelManeger.Hamas.GetTerroristByName(name);
-                string location = IntelManeger.GetTheLastLocaition(terrorist);
-                StrikeManeger.Idf.strikeTerrorist(location, weapon, terrorist);
+                ATTACKandReport(detailes.terroristName, detailes.weaponToUse, detailes.CommanderName);
+            }
+        }
+
+        public (string terroristName, string weaponToUse, string CommanderName) AskForAttackDetailes()
+        {
+            Console.WriteLine("enter the name of the terrorist");
+            string terroristName = Console.ReadLine();
+            Console.WriteLine("enter the type of the weapon to strike");
+            string weaponToUse = Console.ReadLine();
+            Console.WriteLine("enter the neme of the commander");
+            string CommanderName = Console.ReadLine();
+            return (terroristName, weaponToUse, CommanderName);
+        }
+        public bool ValidateAttackDetailes(string terroristName, string weaponToUse)
+        {
+            if (IntelManeger.checkExistence(terroristName))
+            {
+                if (StrikeManeger.checkAvalability(weaponToUse))
+                {
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("this weapon is not availebel");
+                }
             }
             else
             {
-                Console.WriteLine("something went wrong");
+                Console.WriteLine("terrorist not found");
             }
+            return false;
         }
+        public void ATTACKandReport(string terroristName, string weaponToUse, string CommanderName)
+        {
+            Terrorist WantedTerrorist = IntelManeger.Hamas.GetTerroristByName(terroristName);
+            string LastKnownLocation = IntelManeger.GetTheLastLocaition(WantedTerrorist);
+            var AttackOutcome = StrikeManeger.Idf.strikeTerrorist(LastKnownLocation, weaponToUse, WantedTerrorist);
+            bool success = AttackOutcome.Succsess;
+            int emmoCupLeft = AttackOutcome.EmmoCup;
+
+            if (success)
+            {
+                IntelManeger.Hamas.KillTerroristByName(terroristName);
+                IntelManeger.RemoveTarget(terroristName);
+            }
+
+            ReportManeger.AddReport(new StrikeReport(terroristName, CommanderName, weaponToUse, success, emmoCupLeft, DateTime.Now));
+        }
+
+
 
 
 
@@ -81,7 +122,8 @@ namespace IdfProject.Manegers
                 "2. show availabel ammunition\n" +
                 "3. execute attack\n" +
                 "4. show attack reports\n" +
-                "5. go back\n");
+                "5. all the terrorists\n" +
+                "6. go back\n");
                 string choice = Console.ReadLine();
                 Console.Clear();
 
@@ -100,6 +142,41 @@ namespace IdfProject.Manegers
                         ReportsMenu();
                         break;
                     case "5":
+                        TerroristMenu();
+                        break;
+                    case "6":
+                        running = false;
+                        break;
+                    default:
+                        Console.WriteLine("invalid choice");
+                        break;
+                }
+            }
+        }
+        public void TerroristMenu()
+        {
+            bool running = true;
+            while (running)
+            {
+                Console.WriteLine("1. show a list of all terrorists\n" +
+                "2. show only alive terrorist\n" +
+                "3. show only ded torrorist\n" +
+                "4. go back");
+                string choice = Console.ReadLine();
+                Console.Clear();
+
+                switch (choice)
+                {
+                    case "1":
+                        IntelManeger.Hamas.PrintTerrorists(IntelManeger.Hamas.GetAllTerrorist());
+                        break;
+                    case "2":
+                        IntelManeger.Hamas.PrintTerrorists(IntelManeger.Hamas.GetAliveTerrorist());
+                        break;
+                    case "3":
+                        IntelManeger.Hamas.PrintTerrorists(IntelManeger.Hamas.GetDedTerrorist());
+                        break;
+                    case "4":
                         running = false;
                         break;
                     default:
@@ -116,14 +193,15 @@ namespace IdfProject.Manegers
                 Console.WriteLine("1. show a list of all targets\n" +
                 "2. show the most reported terrorist\n" +
                 "3. show the most dangerous torrorist\n" +
-                "4. go back");
+                "4. get the last locaition by a terrorist name\n" +
+                "5. go back");
                 string choice = Console.ReadLine();
                 Console.Clear();
 
                 switch (choice)
                 {
                     case "1":
-                        IntelManeger.ShowListOfTargets();
+                        IntelManeger.ShowListOfTargetsAndReports();
                         break;
                     case "2":
                         IntelManeger.ShowTheMostReportedTerrorist();
@@ -132,6 +210,9 @@ namespace IdfProject.Manegers
                         Console.WriteLine($"the most dangerous terrorist is:\n{IntelManeger.getMostDagerousTerrorist()}");
                         break;
                     case "4":
+                        IntelManeger.GetTheLastLocaitionByName();
+                        break;
+                    case "5":
                         running = false;
                         break;
                     default:
@@ -185,6 +266,7 @@ namespace IdfProject.Manegers
                 switch (choice)
                 {
                     case "1":
+                        ReportManeger.ShowAllReports();
                         break;
                     case "2":
                         break;
@@ -200,18 +282,6 @@ namespace IdfProject.Manegers
             }
             
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

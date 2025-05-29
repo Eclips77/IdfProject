@@ -30,5 +30,14 @@ namespace IdfProject.Entities
         {
             return this.Location;
         }
+        public DateTime GetDateTime()
+        {
+            return this.Timestamp;
+        }
+
+        public override string ToString()
+        {
+            return $"TimeStamp: {Timestamp}\nLocation: {Location}\nSource: {Source}\n";
+        }
     }
 }

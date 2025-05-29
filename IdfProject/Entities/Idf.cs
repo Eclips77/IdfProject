@@ -43,17 +43,22 @@ namespace IdfProject.Entities
             return this.strikeUnits;
         }
 
-        public void strikeTerrorist(string location, string weapon, Terrorist terrorist)
+        public (bool Succsess, int EmmoCup) strikeTerrorist(string location, string weapon, Terrorist terrorist)
         {
             List<StrikeUnitBase> availabelStrikes = GetAllStrikesAvalibel();
-            foreach(StrikeUnitBase strike in availabelStrikes)
+
+            bool succsess = false;
+            int emmoCup = 0;
+            foreach (StrikeUnitBase strike in availabelStrikes)
             {
                 if (strike.GetStrikeName() == weapon)
                 {
-                    strike.strike(location, terrorist);
+                    succsess = strike.strike(location, terrorist);
+                    emmoCup = strike.ChekEmmoCap();
                     break;
                 }
             }
+            return (succsess, emmoCup);
 
 
 

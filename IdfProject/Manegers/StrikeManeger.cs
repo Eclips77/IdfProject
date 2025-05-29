@@ -1,5 +1,6 @@
 ﻿using IdfProject.AbstractClasses;
 using IdfProject.Entities;
+using IdfProject.Entities.StrikeUnits;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -86,6 +87,7 @@ namespace IdfProject.Manegers
         public void ShowAllStriks()
         {
             List<StrikeUnitBase> strikeUnits = Idf.GetAllStriks();
+            Console.WriteLine($"{strikeUnits.Count} strikes have been found:\n");
             PrintListStriks(strikeUnits);
         }
         public void ShowAvailabelAllStriks()
@@ -95,10 +97,21 @@ namespace IdfProject.Manegers
         }
         public void PrintListStriks(List<StrikeUnitBase> strikeUnits)
         {
+            int f16 = 0;
+            int artilery = 0;
+            int drone = 0;
             foreach(StrikeUnitBase strikeUnit in strikeUnits)
             {
+
+                if (strikeUnit.GetStrikeName() == "F16") f16++;
+                else if (strikeUnit.GetStrikeName() == "Drone") drone++;
+                else if (strikeUnit.GetStrikeName() == "Artilery") artilery++;
                 Console.WriteLine(strikeUnit);
             }
+            Console.WriteLine($"there are:\n" +
+                $"{f16} F16\n" +
+                $"{artilery} artilery\n" +
+                $"{drone} drone\n");
         }
     }
 }

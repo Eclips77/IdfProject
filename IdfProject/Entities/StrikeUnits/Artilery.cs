@@ -9,13 +9,7 @@ namespace IdfProject.Entities.StrikeUnits
 {
     internal class Artilery : StrikeUnitBase
     {
-        string BombType;
-        string UseTo = "car";
-        int EmmoCap = 40;
-        int Fuel = 100;
-        string StrikeName = "Artilery";
-
-        public Artilery(string bombType)
+        public Artilery(string bombType) : base(bombType, "car", 40, "Artilery", 100)
         {
             this.BombType = bombType;
         }
@@ -36,5 +30,14 @@ namespace IdfProject.Entities.StrikeUnits
             this.EmmoCap = 40;
             this.Fuel = 100;
         }
+
+        //public override string ToString()
+        //{
+        //    return $"BombType: {BombType}\n" +
+        //        $"UseTo: {UseTo}\n" +
+        //        $"EmmoCap: {EmmoCap}\n" +
+        //        $"StrikeName: {StrikeName}\n" +
+        //        $"Fuel: {Fuel}\n";
+        //}
     }
 }

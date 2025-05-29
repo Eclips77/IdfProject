@@ -9,7 +9,7 @@ namespace IdfProject.Iterfaces
 {
     internal interface IStrikeUnit
     {
-        void strike(string location, Terrorist target);
+        bool strike(string location, Terrorist target);
         int ChekEmmoCap();
         void ConsumeAmmo();
         int CheckFuel();

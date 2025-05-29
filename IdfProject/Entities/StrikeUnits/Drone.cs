@@ -9,13 +9,7 @@ namespace IdfProject.Entities.StrikeUnits
 {
     internal class Drone : StrikeUnitBase
     {
-        string BombType;
-        string UseTo = "person";
-        int EmmoCap = 3;
-        int Fuel = 100;
-        string StrikeName = "Drone";
-
-        public Drone(string bombType)
+        public Drone(string bombType) : base(bombType, "person", 3, "Drone", 100)
         {
             this.BombType = bombType;
         }

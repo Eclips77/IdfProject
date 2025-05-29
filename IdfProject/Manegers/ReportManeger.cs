@@ -16,6 +16,15 @@ namespace IdfProject.Manegers
             strikeReports.Add(report);
         }
 
+        public void ShowAllReports()
+        {
+            foreach(StrikeReport report in strikeReports)
+            {
+                Console.WriteLine($"{strikeReports.Count} reports have been found.");
+                Console.WriteLine(report);
+                Console.WriteLine("************************");
+            }
+        }
         public List<StrikeReport> GetAllReports()
         {
             return this.strikeReports;
