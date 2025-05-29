@@ -20,7 +20,7 @@ namespace IdfProject.Utils
         }
         public async Task<string> SendPromptObjectAsync(object promptRequest)
         {
-            string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={_apiKey}";
+            string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={_apiKey}";
             string json = JsonConvert.SerializeObject(promptRequest);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 

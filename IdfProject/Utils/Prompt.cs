@@ -2,15 +2,18 @@
 {
     public static object GetTerroristRequestObject(int amount)
     {
-        string prompt = $@"Return an array of {amount} unique terrorists in valid JSON format. 
+        string prompt = $@"
+Return an array of {amount} unique terrorists in raw valid JSON format ONLY.
 Each terrorist should be an object with the following fields:
 - name (string): a realistic Arabic male name.
-- rank (int): between 1 and 5.
+- rank (number): a number between 1 and 5.
 - alive (bool): true or false.
-- location (string): a realistic city or region.
+- weapons (array of strings): randomly choose 1 to 4 items from this exact list only: ""ak47"", ""handgun"", ""knife"", ""m16"".
 
-Only return the raw JSON array.
-Do not explain, don't use markdown, no extra text.";
+IMPORTANT:
+- Return ONLY the raw JSON array.
+- DO NOT use markdown formatting (no ```).
+- DO NOT add any explanation, comments, or extra text.";
 
         return new
         {
