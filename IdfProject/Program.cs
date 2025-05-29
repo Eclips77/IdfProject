@@ -69,7 +69,7 @@ namespace IdfProject
 
             for (int i = 0; i < 20; i++)
             {
-                hamas.AddTerrorist(factory.CreateTerrorist());
+                hamas.AddTerrorist(factory.CreateTerrorists());
             }
             List<Terrorist> terrorists = hamas.GetListTerrorist();
 
@@ -88,11 +88,11 @@ namespace IdfProject
                 idf.AddStrikeUnit(drone);
                 idf.AddStrikeUnit(f16);
             }
-            
-            
 
 
-             
+
+
+
 
 
 
