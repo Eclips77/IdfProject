@@ -16,9 +16,6 @@ namespace IdfProject
     {
         static async Task Main(string[] args)
         {
-
-
-
             //Hamas hamas = new Hamas();
             //IntelManeger intelManeger = new IntelManeger(hamas);
 
@@ -64,14 +61,14 @@ namespace IdfProject
             string responseJson = await api.SendPromptObjectAsync(prompt);
             Console.WriteLine(responseJson);
 
-            //var parser = new TerroristDataParser();
-            //List<TerroristData> dataList = parser.ParseApiData(responseJson);
+            var parser = new TerroristDataParser();
+            List<TerroristData> dataList = parser.ParseApiData(responseJson);
 
-            //var factory = new Factory();
-            //foreach (var terrorist in factory.CreateTerrorists(dataList))
-            //{
-            //    hamas.AddTerrorist(terrorist);
-            //}
+            var factory = new Factory();
+            foreach (var terrorist in factory.CreateTerrorists(dataList))
+            {
+                hamas.AddTerrorist(terrorist);
+            }
         }
 
     }
