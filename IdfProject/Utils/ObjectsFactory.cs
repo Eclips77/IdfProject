@@ -12,23 +12,24 @@ namespace IdfProject.Utils
 {
     internal class Factory
     {
-        static Faker faker = new Faker("en");
         static Random rnd = new Random();
-
-        static string[] Weapons = { "AK-47", "HandGUn", "Knife", "m16" };
-
         static string[] bombTypes = { "Laser", "Guided", "Cluster", "High-Explosive" };
 
-        //static string[] StrikeUnitNames = { "Alpha-1", "Beta-2", "Gamma-3", "SkyHawk", "Falcon" };  
 
-        public Terrorist CreateTerrorist()
+        public IEnumerable<Terrorist> CreateTerrorists(List<TerroristData> dataList)
         {
-            string name = faker.Name.FirstName();
-            int rank = rnd.Next(1, 6);
-            bool alive = true;
-            var weapons = Weapons.OrderBy(x => rnd.Next()).Take(rnd.Next(1, 3)).ToList();
-            var terrorist = new Terrorist(name, rank, alive, weapons);
-            return terrorist;
+
+            foreach (var data in dataList)
+            {
+                var terrorist = new Terrorist(
+                    data.Name,
+                    data.Rank,
+                    data.Alive,
+                    data.Weapons.ToList()
+                );
+                yield return terrorist;
+            }
+
         }
 
         public StrikeUnitBase CreateStrikeUnit(int choice)
