@@ -37,5 +37,9 @@ namespace IdfProject.Entities.StrikeUnits
             this.EmmoCap = 8;
             this.Fuel = 100;
         }
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
